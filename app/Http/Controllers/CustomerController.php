@@ -23,7 +23,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return View::make('customer.create');
     }
 
     /**
@@ -31,7 +31,14 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = new Customer;
+        $customer->name = $request->input('name');
+        $customer->gender = $request->input('gender');
+        $customer->address = $request->input('address');
+        $customer->phone_number = $request->input('phone_number');
+        $customer->updated_at = date_create();
+        $customer->created_at = date_create();
+        $customer->save();
     }
 
     /**
