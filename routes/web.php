@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,5 +37,7 @@ Route::middleware('admin')->group(function () {
 
     // admin route lainnya
 });
+
+Route::resource('customer', CustomerController::class);
 
 require __DIR__.'/auth.php';
